@@ -1,0 +1,292 @@
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap');
+
+/* ===================== */
+/* RESET                 */
+/* ===================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================== */
+/* ROOT VARIABLES        */
+/* ===================== */
+
+:root {
+  --bg: #0f0f13;
+  --bg2: #16161d;
+  --bg3: #1e1e28;
+  --border: rgba(255,255,255,0.07);
+  --accent: #7c6ff7;
+  --accent2: #a78bfa;
+  --success: #34d399;
+  --danger: #f87171;
+  --text: #f0eeff;
+  --muted: #7c7a8e;
+  --card: #1a1a24;
+  --radius: 16px;
+  --transition: 0.25s ease;
+}
+
+/* ===================== */
+/* GLOBAL                */
+/* ===================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===================== */
+/* SCROLLBAR             */
+/* ===================== */
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ===================== */
+/* ANIMATIONS            */
+/* ===================== */
+
+@keyframes fillBar {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* ===================== */
+/* UTILITY CLASSES       */
+/* ===================== */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* DESKTOP — 769px+      */
+/* ===================== */
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* ===================== */
+/* TABLET — max 768px    */
+/* ===================== */
+
+@media (max-width: 768px) {
+
+  /* Hide desktop sidebar */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Show mobile elements */
+  .mobile-only {
+    display: flex !important;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 0 16px !important;
+  }
+
+  /* Page layout — remove flex when sidebar hidden */
+  .page-layout {
+    display: block !important;
+  }
+
+  /* Main content padding — account for fixed mobile bar */
+  .main-content {
+    padding: 72px 16px 24px !important;
+  }
+
+  /* Hero section */
+  .hero-section {
+    flex-direction: column !important;
+    padding: 40px 20px !important;
+    gap: 30px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+
+  .hero-cards {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Feature grid */
+  .feat-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats grids */
+  .stats-4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stats-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Exam cards grid */
+  .exam-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Two column forms */
+  .two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tables scroll horizontally */
+  .table-wrap {
+    overflow-x: auto;
+    
+  }
+
+  /* Table rows — min width to prevent squishing */
+  .table-row,
+  .table-header {
+    min-width: 600px;
+  }
+
+  /* Buttons row */
+  .btn-row {
+    flex-direction: column !important;
+  }
+
+  /* Controls row */
+  .controls-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .controls-row input,
+  .controls-row select {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Footer */
+  .footer-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+}
+
+/* ===================== */
+/* SMALL — max 600px     */
+/* ===================== */
+
+@media (max-width: 600px) {
+
+  .stats-4,
+  .stats-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-btns {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .hero-btns button,
+  .hero-btns a {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* ===================== */
+/* EXTRA SMALL — 480px   */
+/* ===================== */
+
+@media (max-width: 480px) {
+
+  .stats-4,
+  .stats-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  .card-padding {
+    padding: 16px !important;
+  }
+
+  .exam-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
+@media (max-width: 768px) {
+  /* Fix content hidden behind mobile bar */
+  .main-with-sidebar {
+    padding-top: 72px !important;
+  }
+}
