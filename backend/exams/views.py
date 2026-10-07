@@ -348,5 +348,5 @@ Give a brief, clear explanation (2-3 sentences) of why this is the correct answe
         return Response({'explanation': explanation})
 
     except Exception as e:
-        return Response({'error': str(e)}, status=500) 
+        return Response({'error': str(e)}, status=500)  
        

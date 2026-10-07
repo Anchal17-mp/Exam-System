@@ -32,7 +32,7 @@ export default function StudentRegister() {
         }
       }, 1500);
     } catch (err) {
-      setError('Registration failed. Username may already exist.');
+      setError('Registration failed.');
     } finally {
       setLoading(false);
     }
@@ -71,7 +71,7 @@ export default function StudentRegister() {
                 type="text"
                 name="username"
                 placeholder="Choose a username"
-                value={form.username}
+                value={form.fullname}
                 onChange={handle}
                 required
               />
